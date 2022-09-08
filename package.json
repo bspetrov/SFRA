@@ -83,7 +83,6 @@
     "mocha": "^5.2.0",
     "mocha-junit-reporter": "^1.23.1",
     "moment-timezone": "^0.5.26",
-    "node-sass": "^4.12.0",
     "postcss-loader": "^2.1.6",
     "properties-parser": "^0.3.1",
     "proxyquire": "1.7.4",
@@ -108,7 +107,8 @@
     "cleave.js": "^1.5.3",
     "flag-icon-css": "^2.9.0",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.5.1"
+    "jquery": "^3.5.1",
+    "sass": "^1.53.0"
   },
   "browserslist": [
     "last 2 versions",

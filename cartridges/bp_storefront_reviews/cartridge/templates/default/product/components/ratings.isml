@@ -1,0 +1,3 @@
+<isif condition="${pdict.showStars}">
+    <isinclude template="product/components/productRating" />
+</isif>

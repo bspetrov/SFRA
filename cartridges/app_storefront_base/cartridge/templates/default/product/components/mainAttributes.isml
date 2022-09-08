@@ -17,4 +17,7 @@
             </div>
         </isif>
     </div>
+        <isif condition="${pdict.loggedIn === true && pdict.productOrdered == true && pdict.reviewGiven == false}">
+            <a href="${pdict.reviewUrl}?id=${product.id}">Leave review</a>
+        </isif>    
 </div>

@@ -1,0 +1,10 @@
+<isdecorate template="common/layout/page">
+    <center>
+       <h2>
+          Before giving a review you need to purchase the product!
+          <a href="${pdict.productPDPUrl}">
+             <input type="button"  class="btn btn-block btn-primary" value="Visit product page!" />
+          </a>   
+       </h2>
+    </center>   
+</isdecorate>

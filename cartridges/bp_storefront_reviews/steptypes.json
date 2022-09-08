@@ -1,0 +1,40 @@
+{
+    "step-types": {
+        "script-module-step": 
+        [
+            {
+                "@type-id": "custom.calculateAvgProductGrade",
+                "@supports-parallel-execution": "true",
+                "@supports-site-context": "true",
+                "@supports-organization-context": "false",
+                "description": "This step calculates average product grade for each product.",
+                "module": "bp_storefront_reviews/cartridge/scripts/steps/calculateAvgProductGrade.js",
+                "function": "calculateAvgProductGrade",
+                "transactional": "false",
+                "timeout-in-seconds": "900",
+                "parameters": 
+                {
+
+                },
+                "status-codes": 
+                {
+                    "status": 
+                    [
+                        {
+                            "@code": "ERROR",
+                            "description": "Used when the step failed with an error."
+                        },
+                        {
+                            "@code": "FINISHED",
+                            "description": "Used when the step finished successfully."
+                        },
+                        {
+                            "@code": "FINISHED_WITH_WARNINGS",
+                            "description": "Used when the step finished with warnings."
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

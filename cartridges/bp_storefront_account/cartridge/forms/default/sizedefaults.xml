@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19" secure="false">
+    <field 
+        formid="clothes"
+        label="label.input.clothes.profile"
+        mandatory="true"
+        max-length="50"
+        type="string" />
+
+    <field
+        formid="shoes"
+        label="label.input.shoes.profile"
+        mandatory="true"
+        max-length="50"
+        type="integer" />
+</form>

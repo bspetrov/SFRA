@@ -1,0 +1,42 @@
+<isdecorate template="application/MenuFrame">
+    <div id="bm-breadcrumb">
+        <a class="breadcrumb">Merchant Tools > Site Preferences > Manage reviews</a>
+        <div class="table_title"> Manage reviews</div>
+        <hr style="border:3px solid #f1f1f1">
+        <div class="table_title_description">
+            <p> The list below contains all the product reviews </p>
+        </div>
+        <form action="" method="post" name="ReviewsForm">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" data-automation="inventory-list-table">
+            <thead>
+                <tr>
+                    <td class="table_header e s" nowrap="nowrap"> Customer </td>
+                    <td class="table_header e s" nowrap="nowrap"> Review Grade </td>
+                    <td class="table_header e s" nowrap="nowrap"> Review Title </td>
+                    <td class="table_header e s" nowrap="nowrap"> Review Description </td>
+                    <td class="table_header e s" nowrap="nowrap">Date added</td>
+                    <td class="table_header e s" nowrap="nowrap">&nbsp;</td>
+                </tr>
+            </thead>
+            <tbody>
+            <isloop iterator="${pdict.allReviews}" alias="review">
+                <tr>
+                    <td class="table_detail e s bold top" nowrap="nowrap">${review.custom.reviewCustomer}</td>
+                    <td class="table_detail e s bold top" nowrap="nowrap">${review.custom.reviewGrade}</td>
+                    <td class="table_detail e s bold top" width="35%"> ${review.custom.reviewTitle}</td>
+                    <td class="table_detail e s" width="35%">${review.custom.reviewDescription}</td>
+                    <td class="table_detail e s" width="35%">${review.creationDate}</td>
+                    <td class="table_detail center e s" nowrap="nowrap" data-automation="action-edit-detail-link">
+                    <isif condition="${review.custom.enabled == true}">
+                      <a class="action_link" href="${pdict.editURL}?id=${review.custom.customerIDproductID}&action=disable">Disable</a>
+                    <iselse>
+                      <a class="action_link" href="${pdict.editURL}?id=${review.custom.customerIDproductID}&action=enable">Enable</a>
+                    </iselse>
+                    </isif>
+                    </td>
+                </tr>
+            </isloop>
+            </tbody>
+        </table>
+        </form>
+</isdecorate>
