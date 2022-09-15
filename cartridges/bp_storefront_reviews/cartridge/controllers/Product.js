@@ -180,6 +180,7 @@ server.append(
         var allReviews = pdpReviews.getThreeReviews(viewData.product.id);
         viewData.avgProductGrade = avgProductGrade;
         viewData.allReviews = allReviews;
+        viewData.requestID = requestID;
 
 
         res.setViewData(viewData);
