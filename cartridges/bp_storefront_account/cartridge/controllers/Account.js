@@ -13,6 +13,7 @@ server.extend(page);
 server.append(
     'Show',
     function (req, res, next) {
+        var viewData = res.getViewData();
         var actionUrl = dw.web.URLUtils.url('Account-SaveDefaults');
         var defaultsForm = server.forms.getForm('sizedefaults');
         defaultsForm.clear();
@@ -22,15 +23,12 @@ server.append(
             [currentShoes, currentClothes] = ['There is no default!', 'There is no default!'];
         }
 
+        viewData.actionUrl = actionUrl
+        viewData.defaultsForm = defaultsForm
+        viewData.currentShoes = currentShoes
+        viewData.currentClothes = currentClothes
 
-        res.render('account/accountDash', {
-            actionUrl: actionUrl,
-            defaultsForm: defaultsForm,
-            currentShoes: currentShoes,
-            currentClothes: currentClothes
-            
-
-        });
+        res.setViewData(viewData);
         next();
     }
 
