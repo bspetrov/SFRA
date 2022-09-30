@@ -51,16 +51,22 @@ Template Notes:
 
         <!-- Attribute Values Drop Down Menu -->
         <select class="custom-select form-control select-${attr.id}" selected="" id="${attr.id}-${loopState && loopState.count ? loopState.count : '1' }" ${ product.productType === "variant" && isBundle ? "disabled" : "" }>
-            <option value="${attr.resetUrl}">
-                ${Resource.msg('label.select', 'common', null)} ${attr.displayName}
-            </option>
             <isloop items="${attr.values}" var="attrValue">
+            <isif condition="${pdict.defaultShoes == attrValue.value || pdict.defaultClothes == attrValue.value}">
+                <option value="${attrValue.url}" data-attr-value="${attrValue.value}"
+                selected="selected"
+                >
+                    ${attrValue.displayValue}
+                </option>
+            <iselse>
                 <option value="${attrValue.url}" data-attr-value="${attrValue.value}"
                     ${!attrValue.selectable ? 'disabled' : ''}
                     ${attrValue.selected ? 'selected' : ''}
                 >
                     ${attrValue.displayValue}
                 </option>
+            </iselse>
+            </isif>    
             </isloop>
         </select>
     </iselse>

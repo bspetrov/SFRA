@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<extensions xmlns="http://www.demandware.com/xml/bmmodules/2007-12-11"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.demandware.com/xml/bmmodules/2007-12-11 bmext.xsd">
+
+        <menuaction id="reviews_manager" menupath="prod-cat" position="100" site="true">
+            <name xml:lang="x-default">Manage reviews</name>
+            <short_description xml:lang="x-default">Manage the reviews</short_description>
+            <description xml:lang="x-default">Manage the reviews, enable and disable a review so it can show on the storefront</description>
+            <exec pipeline="ReviewsAdmin" node="Reviews"/>
+        <sub-pipelines>
+                    <pipeline name="ReviewsAdmin-Reviews" />
+                    <pipeline name="ReviewsAdmin-StatusHandler" />
+               </sub-pipelines>
+        </menuaction>
+
+</extensions>

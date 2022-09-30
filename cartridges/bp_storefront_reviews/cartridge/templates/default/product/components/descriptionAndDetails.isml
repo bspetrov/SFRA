@@ -1,4 +1,5 @@
 <div class="description-and-detail">
+
     <div class="row product-attributes collapsible-xs">
         <isinclude template="product/components/attributes" />
     </div>
@@ -38,4 +39,28 @@
 
         <isinclude template="product/components/details" />
     </div>
+    <isif condition="${pdict.allReviews}">
+    <isloop iterator="${pdict.allReviews}" alias="review">
+    <isif condition="${review.enabled == true}">
+    <div class="review-content" style="padding:30px;border:3px solid #f1f1f1">
+      <span class="heading" style="font-size:25px;mergin-right:25px">Anonymous reviewer</span>
+      <isloop items="${[1, 2, 3, 4, 5]}" var="star">
+          <i class="fa
+              <isif condition="${review.reviewGrade >= star}">
+                  fa-star
+              <iselseif condition="${(review.reviewGrade % 1 > 0) && (Math.ceil(review.reviewGrade) >= star)}">
+                  fa-star-half-o
+              <iselse>
+                  fa-star-o
+              </isif>
+              " aria-hidden="true">
+          </i>
+      </isloop>
+      <p>${review.reviewTitle}</p>
+      <hr style="border:3px solid #f1f1f1">
+      <p>${review.reviewDescription}</p>
+    </div>
+    </isif>
+    </isloop>
+    </isif>
 </div>

@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-sm-6">
+        <!---Profile--->
+        <isinclude template="account/profileCard"/>
+
+        <isif condition="${!pdict.account.isExternallyAuthenticated}">
+            <!---Password--->
+            <isinclude template="account/passwordCard"/>
+        </isif>
+
+        <!---Address Book--->
+        <isinclude template="account/addressBookCard"/>
+    </div>
+    <div class="col-sm-6">
+        <!---Order History--->
+        <isif condition="${pdict.account.orderHistory}">
+            <isset name="order" value="${pdict.account.orderHistory}" scope="page"/>
+            <isinclude template="account/order/orderHistoryCard"/>
+        </isif>
+        <!---Payment--->
+        <isinclude template="account/paymentCard"/>
+
+        <!---Wishlist--->
+        <isinclude template="account/wishlist/listCards"/>
+
+        <!---Gift Registry--->
+        <isinclude template="account/giftRegistry/listCards"/>
+    </div>    
+
+    <div class="col-sm-6">    
+       <div class="row justify-content-center equal-height">
+        <div class="col-sm-8 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="login-form-nav">
+                        <form action="${pdict.actionUrl}" method="POST" class="defaults-form" <isprint value="${pdict.defaultsForm.attributes}" encoding="off" />>
+                            <div class="form-group required">
+                                <label class="form-control-label">
+                                    <isprint value="${pdict.defaultsForm.clothes.label}" encoding="htmlcontent" />
+                                </label>
+                                <input type="input" class="form-control" placeholder="Current - ${pdict.currentClothes}" id="defaults-form-clothes" <isprint value="${pdict.defaultsForm.clothes.attributes}" encoding="off" />>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div class="form-group required">
+                                <label class="form-control-label">
+                                    <isprint value="${pdict.defaultsForm.shoes.label}" encoding="htmlcontent" />
+                                </label>
+                                <input type="input" class="form-control" placeholder="Current - ${pdict.currentShoes}" id="defaultsForm-form-shoes" <isprint value="${pdict.defaultsForm.shoes.attributes}" encoding="off" />>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                               <button type="submit" class="btn btn-block btn-primary">Add defaults</button>
+                        </form>    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>

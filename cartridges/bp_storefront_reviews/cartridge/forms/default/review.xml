@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19" secure="false">
+    <field 
+       formid="title"
+       label="label.input.title.profile"
+       mandatory="true"
+       max-length="350"
+       type="string" />
+
+    <field 
+        formid="description"
+        label="label.input.description.profile"
+        mandatory="true"
+        max-length="350"
+        type="string" />
+
+    <field
+        formid="grade"
+        label="label.input.grade.profile"
+        mandatory="true"
+        min="1"
+        max="5"
+        type="integer" />
+</form>

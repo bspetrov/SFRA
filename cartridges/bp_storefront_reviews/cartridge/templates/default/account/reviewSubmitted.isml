@@ -1,0 +1,11 @@
+<isdecorate template="common/layout/page">
+    <center>
+       <h2>
+          Thank you for the review!
+          We hope we met your expectations and you are enjoying our product!
+          <a href="${pdict.continueUrl}">
+             <input type="button"  class="btn btn-block btn-primary" value="Go to home page!" />
+          </a>   
+       </h2>
+    </center>   
+</isdecorate>

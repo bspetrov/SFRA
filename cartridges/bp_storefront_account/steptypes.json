@@ -1,0 +1,50 @@
+{
+    "step-types": {
+        "script-module-step": 
+        [
+            {
+                "@type-id": "custom.doublePricebook",
+                "@supports-parallel-execution": "true",
+                "@supports-site-context": "true",
+                "@supports-organization-context": "true",
+                "description": "This step doubles the price of the products in the pricebook XML.",
+                "module": "bp_storefront_account/cartridge/scripts/steps/importDoubledPrices.js",
+                "function": "doublePrices",
+                "transactional": "false",
+                "timeout-in-seconds": "900",
+                "parameters": 
+                {
+                    "parameter": 
+                    [
+                        {
+                            "@name": "pricebookXML",
+                            "@type": "string",
+                            "@required": "true",
+                            "description": "An optional string parameter, length must be between 10 and 50",
+                            "min-length": "10",
+                            "max-length": "150"
+                        }
+                    ]
+                },
+                "status-codes": 
+                {
+                    "status": 
+                    [
+                        {
+                            "@code": "ERROR",
+                            "description": "Used when the step failed with an error."
+                        },
+                        {
+                            "@code": "FINISHED",
+                            "description": "Used when the step finished successfully."
+                        },
+                        {
+                            "@code": "FINISHED_WITH_WARNINGS",
+                            "description": "Used when the step finished with warnings."
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
