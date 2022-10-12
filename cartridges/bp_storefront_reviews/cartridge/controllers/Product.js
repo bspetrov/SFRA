@@ -13,6 +13,7 @@ var CustomObjectMgr = require('dw/object/CustomObjectMgr');
 var getOrderedProducts = require('*/cartridge/scripts/helpers/orderedProducts')
 var ProductMgr = require('dw/catalog/ProductMgr');
 var pdpReviews = require('*/cartridge/scripts/helpers/pdpReviews');
+var Pipeline = require('dw/system/Pipeline');
 
 
 /**
@@ -181,6 +182,7 @@ server.append(
         viewData.avgProductGrade = avgProductGrade;
         viewData.allReviews = allReviews;
         viewData.requestID = requestID;
+
 
 
         res.setViewData(viewData);
