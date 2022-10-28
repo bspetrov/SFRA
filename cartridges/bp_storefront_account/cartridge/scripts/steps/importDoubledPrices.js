@@ -17,21 +17,31 @@ function doublePrices(parameters) {
     try {
         var pricebookXML = parameters.pricebookXML;
         var xmlFile = new File(File.IMPEX + '/src/Pricebooks/' + pricebookXML);
+        var newxmlFile = new File(File.IMPEX + '/src/Pricebooks/' + '-doubled' + pricebookXML);
+
         var xmlFileReader = new FileReader(xmlFile);
+        var xmlFileWriter = new FileWriter(newxmlFile, "UTF-8");
 
         var xmlReader = new XMLStreamReader(xmlFileReader);
+        var xmlWriter = new XMLStreamWriter(xmlFileWriter);
+
 
         while (xmlReader.hasNext()) {
             if (xmlReader.next() === XMLStreamConstants.START_ELEMENT) {
-                var localElementName = xmlReader.getLocalName();
+                var wholeObject = xmlReader.readXMLObject();
+                var test = 1;
+            };
+        };
 
-                if (localElementName === 'priceTable') {
-                    var myObject = xmlReader.readXMLObject();
-                    myObject.amount *= 2;
-                    return myObject;
-                }
-            }
-        }
+        for (var i = 0; i <= 1; i++) {
+            wholeObject["price-tables"]["price-table"][i]["amount"] *= 2;
+            wholeObject["price-tables"]["price-table"][i]["amount"]["@quantity"] = 1;
+            
+        };
+
+        xmlWriter.writeRaw(wholeObject);
+        xmlWriter.close();
+        xmlFileWriter.close();
 
     } catch (e) {
         Logger.error('importDoublePrices.js has failed reading the pricebook XML with the following error: ' + e.message);
@@ -41,7 +51,3 @@ function doublePrices(parameters) {
 module.exports = {
     doublePrices: doublePrices
 };
-
-
-
-
