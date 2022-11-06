@@ -19,12 +19,6 @@
         </isif>
         <!---Payment--->
         <isinclude template="account/paymentCard"/>
-
-        <!---Wishlist--->
-        <isinclude template="account/wishlist/listCards"/>
-
-        <!---Gift Registry--->
-        <isinclude template="account/giftRegistry/listCards"/>
     </div>    
 
     <div class="col-sm-6">    
