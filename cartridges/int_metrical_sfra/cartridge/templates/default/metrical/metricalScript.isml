@@ -1,0 +1,52 @@
+<isif condition="${pdict.isMetricalEnabled && pdict.userMeta}">
+    <div class="metrical" data-update-url="${URLUtils.url('Metrical-UpdateUserMeta')}" data-coupon-url="${URLUtils.url('Cart-AddCoupon')}"></div>
+    <input type="hidden" class="metrical-discount-token" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}"/>
+
+    <script src="${URLUtils.staticURL('/js/applyDiscount.js')}"></script>
+
+    <isif condition="${pdict.isCustomerInteractionsActive}">
+        <script defer src="${URLUtils.staticURL('/js/interactionModification.js')}"></script>
+    </isif>
+
+    <script>
+        var isMetricalEnabled = ${pdict.isMetricalEnabled};
+        var isCustomerInteractionsActive = ${pdict.isCustomerInteractionsActive};
+        var metricalId = '${pdict.metricalId}';
+        var acLibrarySrc = '${pdict.acLibrarySrc}';
+        var userMeta = {};
+        try {
+            userMeta = <isprint value="${pdict.userMeta}" encoding="htmlsinglequote"/>;
+
+            // Load Metrical script and initialize Abandon Cart
+            function initializeMetrical(userMeta) {
+                var createScript = function(src, callback) {
+                    var scriptEl = document.createElement('script');
+                    scriptEl.src = src;
+                    scriptEl.onload = callback;
+                    document.body.appendChild(scriptEl);
+                };
+
+                createScript(acLibrarySrc, function() {
+                    var properties = {
+                        abandoncartid: metricalId,
+                        usermeta: userMeta
+                    };
+                    _MetricalAbandonCart.init(properties);
+                });
+            }
+
+            var _MetricalCommerceCloud = {
+                acLibrarySrc: acLibrarySrc,
+                applyDiscount: applyDiscount,
+                isCustomerInteractionsActive: isCustomerInteractionsActive,
+                isMetricalEnabled: isMetricalEnabled,
+                metricalId: metricalId,
+                userMeta: userMeta
+            };
+
+            initializeMetrical(userMeta);
+        } catch (e) {
+            console.warn(e);
+        }
+    </script>
+</isif>

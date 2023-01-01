@@ -6,6 +6,9 @@
   "engines": {
     "node": ">=4.0"
   },
+  "paths": {
+    "base": "../storefront-reference-architecture-6.1.0/cartridges/app_storefront_base/"
+  },
   "scripts": {
     "test": "sgmf-scripts --test test/unit/**/*.js",
     "cover": "sgmf-scripts --cover 'test/unit'",

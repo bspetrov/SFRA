@@ -23,8 +23,17 @@
                             "description": "An optional string parameter, length must be between 10 and 50",
                             "min-length": "10",
                             "max-length": "150"
+                        },
+                        {
+                            "@name": "pricebookID",
+                            "@type": "string",
+                            "@required": "true",
+                            "description": "An optional string parameter, length must be between 10 and 50",
+                            "min-length": "10",
+                            "max-length": "150"
                         }
                     ]
+
                 },
                 "status-codes": 
                 {
